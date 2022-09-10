@@ -63,6 +63,7 @@ document.querySelector('.buttons').onclick = (event) => {
 
 // if pressed =
 	if(key === '='){
+		if (secondNumber === '') secondNumber = firsNumber
 		switch(sign){
 			case "+":
 				firsNumber = (+firsNumber) + (+secondNumber)
@@ -74,6 +75,9 @@ document.querySelector('.buttons').onclick = (event) => {
 				firsNumber = (+firsNumber) * (+secondNumber)
 				break
 			case "/":
+				if (secondNumber === '0'){
+					return clearAll()
+				}
 				firsNumber = (+firsNumber) / (+secondNumber)
 				break
 		}
